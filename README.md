@@ -1,8 +1,18 @@
-# Hey, I'm Supergoatscriptguy
+<a href="https://github.com/Supergoatscriptguy">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=28&pause=1000&color=58A6FF&vCenter=true&width=500&lines=Hey%2C+I'm+Supergoatscriptguy" alt="Typing SVG" />
+</a>
 
 Python developer exploring AI/ML and neural networks.
 
 I build automation scripts and macros for fun, and tinker with machine learning when inspiration hits.
+
+---
+
+### Lepton
+
+My custom LLM architecture with features no other language model has — thought tokens for internal reasoning, memory crystallization for persistent context, sparse depth routing for dynamic compute, and speculative decoding for 4x faster generation.
+
+[![Lepton](https://img.shields.io/badge/Lepton-View_Repo-58A6FF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Supergoatscriptguy/Lepton)
 
 ---
 
