@@ -8,11 +8,11 @@ I like building things from scratch to understand how they work. Mostly neural n
 
 ### Projects
 
-**Tachyon 2** — MoE transformer I built for pretraining. 8 experts per layer, only 2 active per token. Gets ~95k tok/s on an H100. The whole point was making something fast that I could actually train myself.
+**Tachyon 2**: MoE transformer I built for pretraining. 8 experts per layer, only 2 active per token. Gets ~95k tok/s on an H100. The whole point was making something fast that I could actually train myself.
 
 [![Tachyon](https://img.shields.io/badge/Tachyon_2-View_Repo-58A6FF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Supergoatscriptguy/Tachyon)
 
-**Lepton** — Experimental LLM architecture. Has some ideas I wanted to try out — thought tokens, memory that persists across context, dynamic compute routing. Still a work in progress.
+**Lepton**: Experimental LLM architecture. Has some ideas I wanted to try out - thought tokens, memory that persists across context, dynamic compute routing. Still a work in progress.
 
 [![Lepton](https://img.shields.io/badge/Lepton-View_Repo-58A6FF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Supergoatscriptguy/Lepton)
 
