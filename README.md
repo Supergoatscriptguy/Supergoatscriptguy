@@ -16,6 +16,10 @@ I like building things from scratch to understand how they work. Mostly neural n
 
 [![Lepton](https://img.shields.io/badge/Lepton-View_Repo-58A6FF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Supergoatscriptguy/Lepton)
 
+**Tokenizers**: Tokenizers I use for my models.
+
+[![Tokenizers](https://img.shields.io/badge/Tokenizers-View_Repo-58A6FF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Supergoatscriptguy/Tokenizers)
+
 ---
 
 ### Stuff I Use
@@ -23,6 +27,7 @@ I like building things from scratch to understand how they work. Mostly neural n
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+[![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/)
 
 ---
 
