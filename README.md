@@ -2,35 +2,27 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=28&pause=1000&color=58A6FF&vCenter=true&width=500&lines=Hey%2C+I'm+Supergoatscriptguy" alt="Typing SVG" />
 </a>
 
-Python developer exploring AI/ML and neural networks.
-
-I build automation scripts and macros for fun, and tinker with machine learning when inspiration hits.
+I like building things from scratch to understand how they work. Mostly neural networks and ML stuff lately, but I'll automate anything that annoys me enough.
 
 ---
 
-### Lepton
+### Projects
 
-My custom LLM architecture with features no other language model has — thought tokens for internal reasoning, memory crystallization for persistent context, sparse depth routing for dynamic compute, and speculative decoding for 4x faster generation.
+**Tachyon 2** — MoE transformer I built for pretraining. 8 experts per layer, only 2 active per token. Gets ~95k tok/s on an H100. The whole point was making something fast that I could actually train myself.
+
+[![Tachyon](https://img.shields.io/badge/Tachyon_2-View_Repo-58A6FF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Supergoatscriptguy/Tachyon)
+
+**Lepton** — Experimental LLM architecture. Has some ideas I wanted to try out — thought tokens, memory that persists across context, dynamic compute routing. Still a work in progress.
 
 [![Lepton](https://img.shields.io/badge/Lepton-View_Repo-58A6FF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Supergoatscriptguy/Lepton)
 
 ---
 
-### What I Do For Fun
-
-- Building neural networks and experimenting with ML models
-- Writing automation scripts and macros
-- Learning new AI concepts and techniques
-
----
-
-### Tech Stack
+### Stuff I Use
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
-[![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 
 ---
 
