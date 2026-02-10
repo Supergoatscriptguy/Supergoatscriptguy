@@ -26,8 +26,8 @@ I like building things from scratch to understand how they work. Mostly neural n
 
 Pretrained weights and checkpoints are on HuggingFace. Download them to try generation or continue training.
 
-[![Pion Checkpoints](https://img.shields.io/badge/Pion-Checkpoints-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/SuperGoatScriptGuy/Pion)
-[![Training Data](https://img.shields.io/badge/TrainingData-PreprocessedData-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/datasets/SuperGoatScriptGuy/PreprocessedMIXED)
+[![Pion](https://img.shields.io/badge/Pion-Weights-58A6FF?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/SuperGoatScriptGuy/Pion)
+[![Data](https://img.shields.io/badge/Training-Data-58A6FF?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/datasets/SuperGoatScriptGuy/PreprocessedMIXED)
 
 ---
 
