@@ -22,6 +22,15 @@ I like building things from scratch to understand how they work. Mostly neural n
 
 ---
 
+### Models & Checkpoints
+
+Pretrained weights and checkpoints are on HuggingFace. Download them to try generation or continue training.
+
+[![Pion Checkpoints](https://img.shields.io/badge/Pion_Checkpoints-Download-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/SuperGoatScriptGuy/Pion)
+[![Training Data](https://img.shields.io/badge/Training_Data-PreprocessedMIXED-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/datasets/SuperGoatScriptGuy/PreprocessedMIXED)
+
+---
+
 ### Stuff I Use
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
