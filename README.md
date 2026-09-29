@@ -1,27 +1,38 @@
-<a href="https://github.com/Supergoatscriptguy">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=28&pause=1000&color=58A6FF&vCenter=true&width=500&lines=Hey%2C+I'm+Supergoatscriptguy;I+build+a+chess+engine" alt="Typing SVG" />
-</a>
+# Hi, I'm Supergoatscriptguy
 
-I like building things from scratch to understand how they work. Right now that
-means a chess engine in C++ — the search, the board, the evaluation network, the
-testing rig, all of it — and I'll automate anything that annoys me enough.
+I like building things from scratch to see how they actually work. So far that's
+been a chess engine in C++, and now a language model written in assembly.
 
----
+## Mnemonic
 
-### ♟ IxEngine
+A chat language model written entirely in assembly: x86-64 (NASM) on the CPU and
+hand-written PTX on the GPU. No Python, no PyTorch, no CUDA toolkit, no libraries.
+Just the Win32 API and the NVIDIA driver.
 
-A UCI chess engine written from nothing in C++17. No engine libraries, no
-borrowed nets: bitboards with magic sliders, a principal-variation alpha-beta
-search with the modern pruning stack, Lazy SMP, and an NNUE evaluation trained
-entirely on the engine's own self-play games.
+Everything between the raw dataset and the trained model is in the repo:
 
-[![IxEngine](https://img.shields.io/badge/IxEngine-View_Repo-58A6FF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Supergoatscriptguy/IxEngine)
-[![Version](https://img.shields.io/badge/version-1.1-58A6FF?style=for-the-badge)](https://github.com/Supergoatscriptguy/IxEngine)
-[![Strength](https://img.shields.io/badge/CCRL_blitz-~3200-58A6FF?style=for-the-badge)](https://github.com/Supergoatscriptguy/IxEngine/blob/main/TESTING.md)
-[![Language](https://img.shields.io/badge/C%2B%2B17-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://github.com/Supergoatscriptguy/IxEngine)
+- a parquet reader with its own zstd and snappy decompressors, for FineWeb-Edu
+- a byte-level BPE tokenizer (32K vocab), trained and run in assembly
+- the CUDA driver API called straight from asm, with tensor-core matmuls and
+  flash attention written in PTX
+- a Llama-style transformer (RoPE, RMSNorm, SwiGLU, grouped-query attention)
+  whose backward pass is checked against finite differences
+- a trainer with AdamW, a live progress bar, and checkpoints that resume bit for bit
 
-**How strong.** Measured with a 400-game gauntlet against engines with published
-CCRL ratings, one thread, blitz:
+Pretraining the 126M-parameter model on 5B tokens takes about 20 hours on one
+RTX 5070 Ti, at around 60 TFLOPS. Next up: chat fine-tuning, int8/int4
+quantization, and a chat program that runs on the CPU.
+
+**[github.com/Supergoatscriptguy/Mnemonic](https://github.com/Supergoatscriptguy/Mnemonic)**
+
+## IxEngine
+
+A UCI chess engine written from nothing in C++17: bitboards with magic sliders, a
+principal-variation search with the usual modern pruning, Lazy SMP, and an NNUE
+evaluation trained only on its own self-play games.
+
+It plays at about **3200 on the CCRL blitz scale** (±24), measured with a 400-game
+gauntlet against rated engines on one thread:
 
 | Opponent | CCRL | IxEngine |
 |:--|:--:|:--:|
@@ -30,47 +41,23 @@ CCRL ratings, one thread, blitz:
 | Zahak 10.0 | 3292 | 37% |
 | Alexandria 3.5 | 3321 | 24% |
 
-That works out to **≈3198 (±24)** on the CCRL blitz scale. The number has moved
-from ~3090 to ~3200 over the summer, one SPRT-gated patch at a time — every
-change, kept or thrown away, is written up in
+It went from about 3090 to 3200 over the summer, one SPRT-tested change at a time.
+Every change, kept or thrown away, is written up in
 [TESTING.md](https://github.com/Supergoatscriptguy/IxEngine/blob/main/TESTING.md).
 
-**What's inside.**
+​```
+board    bitboards, fancy magics, Zobrist keys, perft-exact move generation
+search   PVS, aspiration windows, null move, LMR, RFP/LMP/SEE pruning,
+         singular extensions with multicut, history-based move ordering
+threads  Lazy SMP with a weighted best-move vote
+eval     768→512 NNUE, SCReLU, 8 output buckets, AVX2, built into the exe
+​```
 
-```
-board      bitboards · fancy magic sliders · Zobrist keys · perft-exact movegen
-search     PVS · aspiration · null move · LMR · RFP/LMP/SEE pruning
-           singular extensions with multicut + double extensions
-           TT move → captures → killers → countermove → continuation history
-threads    Lazy SMP, staggered helper depths, weighted best-move vote
-eval       768→512 NNUE, SCReLU, 8 output buckets, AVX2, compiled into the exe
-           bootstrapped over two self-play generations (+240 Elo over the hand eval)
-testing    self-play SPRT at two time controls · CCRL-anchored rating gauntlet
-```
+It was my first real systems project after a lot of Python, and still the one
+I've had the most fun with.
 
-**How it got here.**
+**[github.com/Supergoatscriptguy/IxEngine](https://github.com/Supergoatscriptguy/IxEngine)**
 
-```
-hand eval, bitboards, PVS ─► NNUE gen1 (self-play, +124) ─► gen2 (+237)
-        ─► singular extensions, time management, countermoves, continuation history
-        ─► embedded net, tuned extensions, history fix (+74), SMP voting ─► 1.1
-```
+## Tools
 
-My first proper systems project after a lot of Python, and easily the one I've
-had the most fun with.
-
----
-
-### Stuff I Use
-
-[![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://isocpp.org/)
-[![CMake](https://img.shields.io/badge/CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white)](https://cmake.org/)
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
-[![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIzLjE1IDIuNTg3IDE4LjIxLjIxYTEuNDk0IDEuNDk0IDAgMCAwLTEuNzA1LjI5bC05LjQ2IDguNjMtNC4xMi0zLjEyOGEuOTk5Ljk5OSAwIDAgMC0xLjI3Ni4wNTdsLS45OS45MThhLjk5OC45OTggMCAwIDAgMCAxLjUwNmwzLjU4IDMuMjctMy41OCAzLjI3YS45OTguOTk4IDAgMCAwIDAgMS41MDZsLjk5LjkxOGMuMzUuMzIzLjg3LjM2NyAxLjI3Ni4wNTdsNC4xMi0zLjEyOCA5LjQ2IDguNjNhMS40OTIgMS40OTIgMCAwIDAgMS43MDQuMjlsNC45NDItMi4zNzdhMS40OTYgMS40OTYgMCAwIDAgLjg1LTEuMzVWMy45MzdhMS40OTUgMS40OTUgMCAwIDAtLjg1LTEuMzV6bS02LjYzIDEzLjY2M0w5LjU0IDEybDYuOTgtNC4yNXY4LjV6Ii8+PC9zdmc+&logoColor=white)](https://code.visualstudio.com/)
-[![PyCharm](https://img.shields.io/badge/PyCharm-000000?style=for-the-badge&logo=pycharm&logoColor=white)](https://www.jetbrains.com/pycharm/)
-
----
-
-[![Snake animation](https://raw.githubusercontent.com/Supergoatscriptguy/Supergoatscriptguy/refs/heads/main/snake_faded.svg)](https://github.com/Supergoatscriptguy)
+C++, x86-64 assembly (NASM), PTX / CUDA, Python, PyTorch, NumPy.
